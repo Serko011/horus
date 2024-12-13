@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Aventura Comienza</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio controls autoplay>
+        <source src="MichaelJackson-YouRockMyWorldHq.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <div class="menu">
+            <h1 id="titulo">La Leyenda del Tesoro Escondido</h1>
+            <button id="empezar">Jugar</button>
+            <img src="https://i.imgur.com/GH3ud7n.png" alt="Personaje" class="personaje" id="personaje" style="display: none;">
+        </div>
+        <div class="aventura" style="display: none;">
+            <p>Estás en un bosque oscuro y misterioso donde ves un rayo de luz en el horizonte... Na te creas esto no es una aventura vamos a lo que en verdad es. ❤️</p>
+            <button id="avanzar">Avanzar</button>
+        </div>
+        <div class="sorpresa" style="display: none;">
+            <img src="https://i.imgur.com/gQX6axu.png" alt="Regalo" id="regalo">
+        </div>
+        <div class="regalo-container" style="display: none;">
+            <img src="https://i.imgur.com/gQX6axu.png" alt="Regalo">
+            <button id="ver-sorpresa">Ver Sorpresas</button>
+        </div>
+        <div class="sorpresas-container" style="display: none;">
+            <img src="https://i.imgur.com/mHbPavj.png" alt="Sorpresa 1" class="sorpresa-individual" id="sorpresa-1">
+            <img src="https://i.imgur.com/kPMBWSw.png" alt="Sorpresa 2" class="sorpresa-individual" id="sorpresa-2">
+            <img src="https://i.imgur.com/frkbFdJ.png" alt="Sorpresa 3" class="sorpresa-individual" id="sorpresa-3">
+            <button id="regresar">Regresar</button>
+        </div>
+        <div id="mensaje-container1" class="mensaje-container" style="display: none;">
+            <p>¿Y si te dijera cuánto te quiero?</p>
+<p>Desearia que te mires como yo te miro<br>
+asi entenderias porque me pierdo en tus ojos<br>
+verias que tu sonrisa inspira a otros <br>
+a ser feliz y no perder el tiempo<br><br>
+
+Permiteme escribir un capitulo nuevo<br>
+donde ambos podamos ser felices<br>
+Permiteme borrar esos miedos y cicatrices<br>
+arroparte en los dias buenos y las noches tristes<br><br>
+
+Quiero pasar una eternidad a tu lado <br>
+y se que a lo mejor estoy siendo un poco avaro<br>
+Pero quiero ser un refugio donde encuentres calma<br>
+ser aquel que abrace tu risa y tu alma<br><br>
+</p>
+            <button id="regresar-sorpresa1">Regresar</button>
+        </div>
+        <div id="mensaje-container2" class="mensaje-container" style="display: none;">
+                <p>¿y que tal si te escribo una carta?</p>
+            <p>Hola, no se cuando estes leyendo esto,Ni se si lo llegare a terminar a tiempo,
+escribir siempre fue facil hasta que me pare a pensar
+las palabras que describirian lo que siento por ti.
+
+Entonces dije y si tan solo le digo que la amo
+que es la razon por las cuales mi dia se vuelve mas calido
+y si solo te digo que te quiero,
+pero quiero un futuro a tu lado, conseguir nuestras metas de la mano.
+
+Entonces podria decirte miles de cosas y me quedaria corto
+pero tengo una vida (crea que larga) por delante para demostrarte todo,
+seamos un equipo y aunque tengamos peleas o baches, sigamos remando juntos,
+que no sea una carrera donde perdamos de vista al otro,
+
+se que podremos con todo, y si tan solo me das una oportunidad
+de conocer a la paqueña niña que lleva tu ser,
+laa cuidare y la protegere hasta mi dia final.
+No soy lo mejor que vas a poder encontrar pero te quiero y no pienso fallar.
+</p>
+            <button id="regresar-sorpresa2">Regresar</button>
+        </div>
+        <div id="mensaje-container3" class="mensaje-container" style="display: none;">
+            <p id="pregunta">Pero quieres o no tu regalo?</p>
+            <button id="opcion-si">Sí</button>
+            <button id="opcion-no">No</button>
+            <div id="resultado" style="display: none;">
+                <p id="poema"></p>
+                <button id="regresar-inicio">Regresar al inicio</button>
+            </div>
+        </div>
+        <div id="mensaje-adicional" class="mensaje-container" style="display: none;">
+            <p id="poema-adicional"></p>
+            <button id="opcion-si-adicional">Sí</button>
+            <button id="opcion-no-adicional">No</button>
+        </div>
+    </div>
+</body>
+
+
+    <script>
+        const empezarButton = document.getElementById('empezar');
+const personaje = document.getElementById('personaje');
+const titulo = document.getElementById('titulo');
+const aventuraDiv = document.querySelector('.aventura');
+const avanzarButton = document.getElementById('avanzar');
+const sorpresaDiv = document.querySelector('.sorpresa');
+const regalo = document.getElementById('regalo');
+const regaloContainer = document.querySelector('.regalo-container');
+const verSorpresaButton = document.getElementById('ver-sorpresa');
+const regresarButton = document.getElementById('regresar');
+const sorpresasContainer = document.querySelector('.sorpresas-container');
+const mensajeContainer1 = document.getElementById('mensaje-container1');
+const mensajeContainer2 = document.getElementById('mensaje-container2');
+const mensajeContainer3 = document.getElementById('mensaje-container3');
+const regresarSorpresaButton1 = document.getElementById('regresar-sorpresa1');
+const regresarSorpresaButton2 = document.getElementById('regresar-sorpresa2');
+const regresarInicioButton = document.getElementById('regresar-inicio');
+
+const opcionSiButton = document.getElementById('opcion-si');
+const opcionNoButton = document.getElementById('opcion-no');
+const pregunta = document.getElementById('pregunta');
+const resultadoDiv = document.getElementById('resultado');
+const poemaP = document.getElementById('poema');
+
+const mensajeAdicional = document.getElementById('mensaje-adicional');
+const poemaAdicionalP = document.getElementById('poema-adicional');
+const opcionSiAdicionalButton = document.getElementById('opcion-si-adicional');
+const opcionNoAdicionalButton = document.getElementById('opcion-no-adicional');
+
+// Comportamiento al hacer clic en 'empezar'
+empezarButton.addEventListener('click', function() {
+    personaje.style.display = 'block';
+    empezarButton.style.display = 'none';
+    setTimeout(function() {
+        titulo.textContent = 'Esta eres tú, pequeña, hermosa y única. ¡Buena suerte!';
+        setTimeout(function() {
+            titulo.style.display = 'none';
+            aventuraDiv.style.display = 'block';
+        }, 2000);
+    }, 2000);
+});
+
+// Comportamiento al hacer clic en 'avanzar'
+avanzarButton.addEventListener('click', function() {
+    aventuraDiv.style.display = 'none';
+    sorpresaDiv.style.display = 'block';
+    personaje.style.display = 'none';
+});
+
+// Comportamiento al hacer clic en 'regalo'
+regalo.addEventListener('click', function() {
+    sorpresaDiv.style.display = 'none';
+    regaloContainer.style.display = 'block';
+});
+
+// Comportamiento al hacer clic en 'ver-sorpresa'
+verSorpresaButton.addEventListener('click', function() {
+    regaloContainer.style.display = 'none';
+    sorpresasContainer.style.display = 'block';
+    regresarButton.style.display = 'block';
+});
+
+// Comportamiento al hacer clic en 'regresar'
+regresarButton.addEventListener('click', function() {
+    sorpresasContainer.style.display = 'none';
+    regresarButton.style.display = 'none';
+    regaloContainer.style.display = 'block';
+});
+
+// Comportamiento al hacer clic en cada sorpresa
+document.getElementById('sorpresa-1').addEventListener('click', function() {
+    sorpresasContainer.style.display = 'none';
+    mensajeContainer1.style.display = 'block';
+});
+
+regresarSorpresaButton1.addEventListener('click', function() {
+    mensajeContainer1.style.display = 'none';
+    sorpresasContainer.style.display = 'block';
+});
+
+document.getElementById('sorpresa-2').addEventListener('click', function() {
+    sorpresasContainer.style.display = 'none';
+    mensajeContainer2.style.display = 'block';
+});
+
+regresarSorpresaButton2.addEventListener('click', function() {
+    mensajeContainer2.style.display = 'none';
+    sorpresasContainer.style.display = 'block';
+});
+
+document.getElementById('sorpresa-3').addEventListener('click', function() {
+    sorpresasContainer.style.display = 'none';
+    mensajeContainer3.style.display = 'block';
+});
+
+// Comportamiento al hacer clic en 'sí' o 'no' en mensaje-container3
+opcionSiButton.addEventListener('click', function() {
+    // Redirigir a otra página web llamada index2.html
+    window.location.href = 'index2.html';
+});
+
+opcionNoButton.addEventListener('click', function() {
+    pregunta.style.display = 'none';
+    opcionSiButton.style.display = 'none';
+    opcionNoButton.style.display = 'none';
+
+    poemaP.innerHTML = "Que buscas aqui mamaguevo, quieres pelea o como";
+    resultadoDiv.style.display = 'block';
+});
+
+// Comportamiento al hacer clic en 'sí' o 'no' en mensaje-adicional
+opcionSiAdicionalButton.addEventListener('click', function() {
+    poemaAdicionalP.innerHTML = "¡Excelente elección! Te adentras en una nueva etapa de la aventura, llena de maravillas y sorpresas.";
+    mensajeAdicional.style.display = 'none'; // Oculta el mensaje adicional al elegir sí
+});
+
+opcionNoAdicionalButton.addEventListener('click', function() {
+    mensajeAdicional.style.display = 'none';
+    mensajeContainer3.style.display = 'none';
+    resultadoDiv.style.display = 'block';  // Muestra el resultado original
+});
+
+// Comportamiento al hacer clic en 'regresar-inicio'
+regresarInicioButton.addEventListener('click', function() {
+    mensajeContainer3.style.display = 'none';
+    mensajeContainer1.style.display = 'none';
+    mensajeContainer2.style.display = 'none';
+    aventuraDiv.style.display = 'none';
+    regaloContainer.style.display = 'none';
+    personaje.style.display = 'none';
+    
+    titulo.style.display = 'block';
+    titulo.textContent = "La Leyenda del Tesoro Escondido";
+    empezarButton.style.display = 'block';
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+/* Estilo general de la página */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #0f0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Contenedor principal */
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilo del título */
+#titulo {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Estilo de los botones */
+button {
+    background-color: #333;
+    color: #0f0;
+    border: 1px solid #0f0;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+/* Botones al pasar el cursor */
+button:hover {
+    background-color: #0f0;
+    color: #000;
+}
+
+/* Estilo del contenedor de sorpresas */
+.sorpresas-container img {
+    width: 200px;
+    height: auto;
+    margin: 10px;
+}
+
+/* Estilo de los mensajes */
+.mensaje-container {
+    background-color: #111;
+    border: 1px solid #0f0;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    color: #0f0;
+    border-radius: 10px;
+    text-align: left;
+}
+
+/* Poemas en los contenedores de mensaje */
+#poema1, #poema2, #poema {
+    font-size: 1.2em;
+    white-space: pre-wrap; /* Mantiene los saltos de línea en el texto */
+    text-align: left;
+    margin: 20px 0;
+}
+
+/* Poema adicional */
+#poema-adicional {
+    font-size: 1.2em;
+    white-space: pre-wrap;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Mensaje en el contenedor adicional */
+#mensaje-adicional p {
+    font-size: 1.5em;
+    color: #0f0;
+    margin: 20px;
+}
+
+/* Centrar los textos en el contenedor de resultados */
+#resultado p {
+    font-size: 1.5em;
+    text-align: center;
+    margin: 20px;
+}
+
+/* Ocultar elementos que no se deben mostrar */
+.hidden {
+    display: none;
+}
+
+/* Estilo para imagen del personaje */
+.personaje {
+    width: 200px;
+    height: auto;
+}
